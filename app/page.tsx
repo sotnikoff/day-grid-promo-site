@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 
 const DISCORD_URL = "https://discord.gg/MndwAACJQx";
+const ADMIN_URL = "https://admin.day-grid.app";
 
 const navLinks = [
   { href: "#why", label: "Зачем это" },
   { href: "#how", label: "Как работает" },
+  { href: "#easy", label: "Просто" },
   { href: "#benefits", label: "Что получишь" },
   { href: "#audience", label: "Для кого" },
 ];
@@ -28,7 +30,7 @@ const reasons = [
   {
     icon: "🎁",
     title: "Монетизация и награды",
-    text: "Доступ к плейлистам можно выдавать игрокам как приятный бонус.",
+    text: "Особые предметы в игре разблокируют плейлисты — выдавай доступ как приятный бонус.",
   },
 ];
 
@@ -57,8 +59,38 @@ const benefits = [
   "Своя музыка в игре — столько треков, сколько захочешь",
   "Гибкие плейлисты под настроение и события сервера",
   "Возможность выдавать музыку отдельным игрокам как награду",
+  "Особые предметы в игре, которые разблокируют плейлисты",
+  "Создание плейлистов и настройка треков — без перезагрузки сервера",
   "Полный контроль из одной онлайн-панели",
   "Простая установка — без навыков программирования",
+];
+
+const easySteps = [
+  {
+    number: "1",
+    icon: "🎵",
+    title: "Перетащи свои MP3",
+    text: "Просто бросаешь треки в программу — она сама подготовит музыку в нужном формате.",
+  },
+  {
+    number: "2",
+    icon: "🧩",
+    title: "Собери плейлист",
+    text: "В пару кликов в онлайн-панели составляешь плейлисты под настроение и события сервера.",
+  },
+  {
+    number: "3",
+    icon: "✨",
+    title: "Раздай игрокам",
+    text: "Выбираешь, кому и что доступно — и музыка уже звучит в игре. Никакого кода.",
+  },
+];
+
+const easyPoints = [
+  "Без навыков программирования",
+  "Всё через браузер",
+  "Изменения без перезагрузки сервера",
+  "Установка за несколько минут",
 ];
 
 function DiscordIcon({ className }: { className?: string }) {
@@ -97,28 +129,6 @@ function DiscordButton({
       <DiscordIcon className="h-5 w-5" />
       {children}
     </a>
-  );
-}
-
-function Equalizer() {
-  const bars = [0, 0.35, 0.7, 0.15, 0.5, 0.9, 0.25, 0.6, 0.05, 0.45, 0.8, 0.3];
-  return (
-    <div
-      className="flex h-16 items-end justify-center gap-1.5"
-      aria-hidden="true"
-    >
-      {bars.map((delay, i) => (
-        <span
-          key={i}
-          className="eq-bar w-1.5 rounded-full bg-gradient-to-t from-accent to-glow"
-          style={{
-            height: "100%",
-            animationDelay: `${delay}s`,
-            animationDuration: `${0.9 + (i % 4) * 0.18}s`,
-          }}
-        />
-      ))}
-    </div>
   );
 }
 
@@ -202,26 +212,9 @@ function Hero() {
         </a>
       </div>
 
-      <div className="fade-up mt-16 w-full max-w-md [animation-delay:0.2s]">
-        <div className="gradient-border float-slow rounded-2xl border border-border-subtle bg-surface/70 p-6 backdrop-blur">
-          <div className="mb-4 flex items-center gap-3 text-left">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-surface-2 text-xl">
-              🚗
-            </span>
-            <div>
-              <p className="text-sm font-semibold">Сейчас в эфире</p>
-              <p className="text-xs text-muted">Night Drive · твой плейлист</p>
-            </div>
-            <span className="ml-auto text-xs font-medium text-accent">
-              ▶ играет
-            </span>
-          </div>
-          <Equalizer />
-        </div>
-        <p className="mt-6 text-sm text-muted">
-          Музыка, атмосфера и индивидуальность твоего сервера
-        </p>
-      </div>
+      <p className="fade-up mt-12 text-sm text-muted [animation-delay:0.2s]">
+        Музыка, атмосфера и индивидуальность твоего сервера
+      </p>
     </section>
   );
 }
@@ -300,6 +293,63 @@ function HowItWorks() {
             <p className="mt-4 text-sm leading-6 text-muted">{step.text}</p>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function EasyToUse() {
+  return (
+    <section id="easy" className="mx-auto w-full max-w-6xl px-5 py-20">
+      <SectionHeading
+        eyebrow="Проще не бывает"
+        title="Пользоваться — легко"
+        subtitle="Тебе не нужно ничего программировать. Три шага — и музыка уже в игре."
+      />
+      <div className="grid items-stretch gap-8 lg:grid-cols-2">
+        <div className="grid gap-4">
+          {easySteps.map((step) => (
+            <div
+              key={step.number}
+              className="gradient-border group flex items-start gap-4 rounded-2xl border border-border-subtle bg-surface/70 p-5 transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-accent to-accent-strong text-lg font-bold text-black">
+                {step.number}
+              </span>
+              <div>
+                <h3 className="flex items-center gap-2 text-lg font-semibold">
+                  <span className="text-xl">{step.icon}</span>
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-sm leading-6 text-muted">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="gradient-border relative flex flex-col justify-center overflow-hidden rounded-3xl border border-border-subtle bg-gradient-to-b from-surface-2 to-surface p-8 sm:p-10">
+          <div className="glow-blob pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-accent/12 blur-3xl" />
+          <p className="relative text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+            Без головной боли
+          </p>
+          <h3 className="relative mt-3 text-2xl font-bold leading-snug sm:text-3xl">
+            Очень просто
+          </h3>
+          <ul className="relative mt-6 grid gap-3">
+            {easyPoints.map((point) => (
+              <li key={point} className="flex items-center gap-3">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-strong text-sm font-bold text-black">
+                  ✓
+                </span>
+                <span className="text-base leading-7">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="relative mt-7 rounded-xl border border-border-subtle bg-surface/60 px-4 py-3 text-sm leading-6 text-muted">
+            Загрузил треки, собрал плейлист, выдал игрокам — готово. Всё
+            остальное DayGrid берёт на себя.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -388,15 +438,26 @@ function Footer() {
         <p>
           © {new Date().getFullYear()} DayGrid. Музыка для твоего DayZ-сервера.
         </p>
-        <a
-          href={DISCORD_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
-        >
-          <DiscordIcon className="h-4 w-4" />
-          Discord
-        </a>
+        <div className="flex items-center gap-5">
+          <a
+            href={ADMIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <span aria-hidden="true">🎛️</span>
+            Админ-панель
+          </a>
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <DiscordIcon className="h-4 w-4" />
+            Discord
+          </a>
+        </div>
       </div>
     </footer>
   );
@@ -410,6 +471,7 @@ export default function Home() {
         <Hero />
         <WhyBlock />
         <HowItWorks />
+        <EasyToUse />
         <Benefits />
         <Audience />
         <FinalCta />
