@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DayGrid — музыка в твоём DayZ-сервере",
+  title: "DayGrid — музыка для DayZ-сервера | Music for your DayZ server",
   description:
-    "DayGrid превращает обычный DayZ-сервер в место с живой атмосферой: игроки слушают музыку прямо в игре, садясь в машины. Загрузи свои треки, собери плейлисты и подари игрокам впечатления.",
+    "DayGrid превращает обычный DayZ-сервер в место с живой атмосферой. Add music, playlists, and in-game playlist unlocks to your DayZ server.",
   keywords: [
     "DayGrid",
     "DayZ",
@@ -24,11 +24,13 @@ export const metadata: Metadata = {
     "сервер DayZ",
     "плейлисты",
     "DayZ mod",
+    "DayZ music",
+    "DayZ server music",
   ],
   openGraph: {
-    title: "DayGrid — музыка в твоём DayZ-сервере",
+    title: "DayGrid — музыка для DayZ-сервера | Music for your DayZ server",
     description:
-      "Живая атмосфера для твоего DayZ-сервера: своя музыка в игре, гибкие плейлисты и полный контроль из онлайн-панели.",
+      "Живая атмосфера для твоего DayZ-сервера: своя музыка в игре, гибкие плейлисты, unlock-предметы и полный контроль из онлайн-панели.",
     type: "website",
     locale: "ru_RU",
     siteName: "DayGrid",
